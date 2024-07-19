@@ -25,7 +25,7 @@ const Content = () => {
 
       <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-5 gap-3">
         <ContentCard
-          title="STEAM Training For Teachers"
+          title="3D Printing"
           description="There will be dedicated zone to teach key STEAM concepts to teachers and educators to drive the sustainability of the STEAM movement"
         />
         <ContentCard
