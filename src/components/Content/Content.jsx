@@ -20,34 +20,37 @@ const Content = () => {
     }}
     >
       <h1 className="text-[#F7CB0D] text-center mb-10 md:text-[40px] sm:text-[35px] text-[30px] font-medium">
-        STEM Africa Fest 2024 Will Comprise Of:
+        Our Summer of Innovation Will Comprise Of:
       </h1>
 
       <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-5 gap-3">
         <ContentCard
           title="3D Printing"
-          description="There will be dedicated zone to teach key STEAM concepts to teachers and educators to drive the sustainability of the STEAM movement"
+          description="Unleash Your Creativity. 3D printing is a game-changer in manufacturing 
+          and design. It allows you to bring your ideas to life, layer by layer, with precision 
+          and customisation. Participants would learn the basics of 3D Printing, Learn about different 
+          types of 3D printers and materials, get hands-on with CAD (Computer-Aided Design) software 
+          to create 3D models, understand the printing process from start to finish, Discover how 3D 
+          printing is used in fields like medicine, aerospace, and art."
+/>
+        <ContentCard
+          title="Internet of Things"
+          description="Master the Heart of Technology. Embedded systems are the hidden heroes in many of 
+          the devices we use every day. These specialized computer systems are designed to perform 
+          dedicated functions with reliability and efficiency. Participants would learn what embedded 
+          systems are and where they are used, get familiar with the brains behind embedded systems, 
+          write and debug code for embedded systems using platforms like Arduino and Raspberry Pi, 
+          design and build embedded systems projects, such as automated robots and smart gadgets.
+"
         />
         <ContentCard
-          title="STEAM Training For Teachers"
-          description="Different subject matter experts in the Technology space around Africa will sit at a panel session to discuss various topics in STEAM. Children and parents will have the opportunity to attend these specially designed panel sessions covering topics on technology, careers in tech, gaming, VR/AR, etc."
+          title="Entrepreneurship"
+          description="Gain practical experience with state-of-the-art tools and technologies, 
+          learn from industry experts and experienced mentors, work on real-world projects in teams, 
+          fostering collaboration and innovation, develop skills that are highly valued in today’s 
+          job market connect with like-minded individuals and professionals in the tech community."
         />
-        <ContentCard
-          title="STEAM Training For Teachers"
-          description="There will be dedicated zone to teach key STEAM concepts to teachers and educators to drive the sustainability of the STEAM movement"
-        />
-        <ContentCard
-          title="STEAM Training For Teachers"
-          description="There will be dedicated zone to teach key STEAM concepts to teachers and educators to drive the sustainability of the STEAM movement"
-        />
-        <ContentCard
-          title="STEAM Training For Teachers"
-          description="Different subject matter experts in the Technology space around Africa will sit at a panel session to discuss various topics in STEAM. Children and parents will have the opportunity to attend these specially designed panel sessions covering topics on technology, careers in tech, gaming, VR/AR, etc."
-        />
-        <ContentCard
-          title="STEAM Training For Teachers"
-          description="There will be dedicated zone to teach key STEAM concepts to teachers and educators to drive the sustainability of the STEAM movement"
-        />
+        
       </div>
     </div>
   );

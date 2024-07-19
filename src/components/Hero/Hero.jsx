@@ -76,7 +76,7 @@ const Hero = () => {
         <hr />
       </div>
       <div className="lg:text-[65px] md:text-[60px] px-2 sm:text-[50px] text-[40px] font-semibold md:w-[700px] w-full mx-auto mb-5">
-        <h2>IGNITING CHANGE THROUGH CLEANTECH AND STEAM</h2>
+        <h2>IGNITE YOUR SUMMER: LEARN, EXPLORE, INNOVATE</h2>
       </div>
       {timeFinished ? 
         <div className="text-center mb-5">
