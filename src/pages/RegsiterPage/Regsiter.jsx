@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const Regsiter = () => {
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  });
   const[emailIsInvalid, setEmailIsInvalid] = useState(false)
   const[phoneNoIsInvalid, setphoneNoIsInvalid] = useState(false)
   const[ageIsInvalid, setAgeIsInvalid] = useState(false)
@@ -17,6 +22,20 @@ const Regsiter = () => {
     age: "",
     sex:""
   })
+
+  const handleServerResponse = (ok, msg) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      });
+    } else {
+      setStatus({
+        info: { error: true, msg: msg },
+      });
+    }
+  };
 
   function handleSubmit(e){
     e.preventDefault();
@@ -36,17 +55,25 @@ const Regsiter = () => {
       setAgeIsInvalid(true)
       return
     }
-
-    
-    axios.post('http://localhost/connect.php', enteredValues)
-      .then(response => {
-        console.log(response.data);
+    //connect to database
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+    axios({
+      method: 'POST',
+      url: 'https://formspree.io/f/mjkbggkk',
+      data: enteredValues,
+    })
+      // eslint-disable-next-line no-unused-vars
+      .then((response) => {
+        handleServerResponse(
+          true,
+          'Thank you, your message has been submitted.',
+        );
       })
-      .catch(error => {
-        console.error('There was an error!', error);
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error);
       });
 
-    console.log(enteredValues)
+  //clear form fields and error messages
     setAgeIsInvalid(false)
     setphoneNoIsInvalid(false)
     setEmailIsInvalid(false)
@@ -67,7 +94,12 @@ const Regsiter = () => {
     setEnteredvalues(prevValues => ({
       ...prevValues,
       [identifier]: value
-    }))
+    }));
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    });
   }
 
 
@@ -81,7 +113,7 @@ const Regsiter = () => {
           We just need a little bit of data from you to get
         </p>
         <div>
-          <form action="http://localhost/3dir/connect.php" method="POST" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 grid-cols-1 gap-5">
               <div className="flex gap-1 flex-col">
                 <label htmlFor="firstname" className="font-medium ">
@@ -212,8 +244,12 @@ const Regsiter = () => {
                 </select>
               </div>
             </div>
-            <button className="px-7 py-3 bg-blue-600 rounded-lg mt-5 text-white">
-              Submit
+            <button type="submit" disabled={status.submitting} className="px-7 py-3 bg-blue-600 rounded-lg mt-5 text-white">
+            {!status.submitting
+            ? !status.submitted
+              ? 'Submit'
+              : 'Submitted'
+            : 'Submitting...'}
             </button>
             <Link to="/">
               <button
