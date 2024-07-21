@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { toast } from "react-toastify";
 
 const Regsiter = () => {
   const [status, setStatus] = useState({
@@ -72,6 +73,8 @@ const Regsiter = () => {
       .catch((error) => {
         handleServerResponse(false, error.response.data.error);
       });
+
+    toast.success("Form submitted successfully")
 
   //clear form fields and error messages
     setAgeIsInvalid(false)
