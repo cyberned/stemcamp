@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Regsiter = () => {
   const[emailIsInvalid, setEmailIsInvalid] = useState(false)
@@ -11,17 +12,17 @@ const Regsiter = () => {
     lastName: "",
     email: "",
     city: "",
-    address:"",
-    phoneNo:"",
+    Useraddress:"",
+    phone:"",
     age: "",
     sex:""
   })
 
-  function handleSubmit(e) {
+  function handleSubmit(e){
     e.preventDefault();
     //validating user input
     const emailIsValid = enteredValues.email.includes("@gmail.com") || enteredValues.email.includes("@yahoo.com") ||enteredValues.email == ""
-    const phoneNoIsvalid = enteredValues.phoneNo.includes("+234") && enteredValues.phoneNo.length == 15 ||enteredValues.phoneNo.length == 14 || enteredValues.phoneNo == ""
+    const phoneNoIsvalid = enteredValues.phone.includes("+234") && enteredValues.phone.length == 15 ||enteredValues.phone.length == 14 || enteredValues.phone == ""
     const ageIsValid = enteredValues.age >=10 && enteredValues.age <=20
     if(!emailIsValid){
       setEmailIsInvalid(true)
@@ -36,6 +37,16 @@ const Regsiter = () => {
       return
     }
 
+    
+    axios.post('http://localhost/connect.php', enteredValues)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+
+    console.log(enteredValues)
     setAgeIsInvalid(false)
     setphoneNoIsInvalid(false)
     setEmailIsInvalid(false)
@@ -45,8 +56,8 @@ const Regsiter = () => {
       lastName: "",
       email: "",
       city: "",
-      address:"",
-      phoneNo:"",
+      Useraddress:"",
+      phone:"",
       age: "",
       sex:""      
     }))
@@ -70,7 +81,7 @@ const Regsiter = () => {
           We just need a little bit of data from you to get
         </p>
         <div>
-          <form action="" onSubmit={handleSubmit}>
+          <form action="http://localhost/3dir/connect.php" method="POST" onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 grid-cols-1 gap-5">
               <div className="flex gap-1 flex-col">
                 <label htmlFor="firstname" className="font-medium ">
@@ -78,7 +89,7 @@ const Regsiter = () => {
                 </label>
                 <input
                   type="text"
-                  name="firstname"
+                  name="firstName"
                   id="firstname"
                   required
                   placeholder="John"
@@ -93,7 +104,7 @@ const Regsiter = () => {
                 </label>
                 <input
                   type="text"
-                  name="lastname"
+                  name="lastName"
                   id="lastname"
                   required
                   placeholder="Doe"
@@ -131,8 +142,8 @@ const Regsiter = () => {
                   required
                   placeholder="+234 9050000000"
                   className="border px-3 py-2 rounded-md"
-                  onChange={()=> handleInputChange("phoneNo", event.target.value)}
-                  value={enteredValues.phoneNo}
+                  onChange={()=> handleInputChange("phone", event.target.value)}
+                  value={enteredValues.phone}
                 />
                 <div className="text-red-400">
                   {phoneNoIsInvalid && <p>Please use the given phone format</p>}
@@ -144,12 +155,12 @@ const Regsiter = () => {
                 </label>
                 <input
                   type="text"
-                  name="addresss"
+                  name="Useraddress"
                   id="address"
                   placeholder="No 17 EastWood Drive, NC Paris"
                   className="border px-3 py-2 rounded-md"
-                  onChange={()=> handleInputChange("address", event.target.value)}
-                  value={enteredValues.address}
+                  onChange={()=> handleInputChange("Useraddress", event.target.value)}
+                  value={enteredValues.Useraddress}
                 />
               </div>
               <div className="flex gap-1 flex-col">
