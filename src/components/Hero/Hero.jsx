@@ -64,6 +64,7 @@ const Hero = () => {
         loop
         autoPlay
         muted
+        playsInline
       >
         <source src={herobg} type="video/mp4" />
       </video>

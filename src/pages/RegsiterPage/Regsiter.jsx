@@ -9,10 +9,11 @@ const Regsiter = () => {
     submitting: false,
     info: { error: false, msg: null },
   });
+  //state for field input validation
   const[emailIsInvalid, setEmailIsInvalid] = useState(false)
   const[phoneNoIsInvalid, setphoneNoIsInvalid] = useState(false)
   const[ageIsInvalid, setAgeIsInvalid] = useState(false)
-
+  //state for entered values
   const[enteredValues, setEnteredvalues] = useState({
     firstName: "",
     lastName: "",
@@ -37,7 +38,7 @@ const Regsiter = () => {
       });
     }
   };
-
+  //function to handle submit
   function handleSubmit(e){
     e.preventDefault();
     //validating user input
@@ -93,6 +94,7 @@ const Regsiter = () => {
     }))
   }
 
+  //two way binding of input fields
   function handleInputChange(identifier, value) {
     setEnteredvalues(prevValues => ({
       ...prevValues,

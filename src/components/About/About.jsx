@@ -45,6 +45,7 @@ const About = () => {
       <div>
         <div className="relative h-[350px] w-full flex items-center justify-center">
           <video
+            playsInline
             id="video"
             className=" absolute -z-10 right-0 bottom-0 w-full h-full object-cover"
             loop
