@@ -31,7 +31,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="flex items-center sm:gap-4 gap-2">
-                <a href="/"><div className="flex items-center justify-center rounded-full bg-transparent border px-2 py-2 text-[17px] hover:bg-white hover:text-blue-600 transition-all"><IconFacebook/></div></a>
+                <a href="https://facebook.com/bt2spec" target="blank" rel="noreferrer"><div className="flex items-center justify-center rounded-full bg-transparent border px-2 py-2 text-[17px] hover:bg-white hover:text-blue-600 transition-all"><IconFacebook/></div></a>
                 <a href="/"><div className="flex items-center justify-center rounded-full bg-transparent border px-2 py-2 text-[17px] hover:bg-white hover:text-blue-600 transition-all"><IconInstagram/></div></a>
                 <a href="/"><div className="flex items-center justify-center rounded-full bg-transparent border px-2 py-2 text-[17px] hover:bg-white hover:text-blue-600 transition-all"><IconTwitter/></div></a>
                 <a href="/"><div className="flex items-center justify-center rounded-full bg-transparent border px-2 py-2 text-[17px] hover:bg-white hover:text-blue-600 transition-all"><IconLinkedin/></div></a>
